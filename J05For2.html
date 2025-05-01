@@ -6,16 +6,24 @@
   <title>J05For2.html</title>
   <script>
     function gugudanPrint() {
+      // input과 select 태그에서 선택한 값 얻어오기
       let dan = document.getElementById("dan").value
       let su = document.getElementById("su").value;
+      // 구구단을 선택한 숫자만큼 반복해서 table태그로 생성
 
       let strGugu = "<table border='1'>";
+        // 단(행)의 숫자만큼 반복해서 tr태그 생성
       for(let x = 2 ; x <= dan ; x++) {
         strGugu += "<tr>" ;
+          // 수(열)의 숫자만큼 td태그 생성
         for(let y = 1 ; y <= su ; y ++) {
-          
+          strGugu += "<td>" + x + " * " + y + " = " + (x*y) + "</td>";
         }
+        strGugu += "</tr>";
       }
+      strGugu += "</table>";
+      // 앞에서 연결된 문자열이 동적으로 삽입되어 브라우저에 출력됨
+      document.getElementById("here_gugudan").innerHTML = strGugu;
     }
   </script>
 </head>
@@ -31,14 +39,17 @@
     <tr>
       <td>단</td>
       <td>
-        <input type="range" id="dan" min="2" max="9">
+        <!-- type을 range로 부여하면 슬라이드 모양으로 수를 선택할 수
+         있다. min과 max로 범위를 지정한다. -->
+        <input type="range" id="dan" min="2" max="9" onchange="gugudanPrint();">
       </td>
     </tr>
     <tr>
       <td>수</td>
       <td>
-        <!-- select>opt*9 -->
-        <select id="su">
+         <!-- select#su>opt[value="$"]*9 -->
+          
+        <select id="su" onchange="gugudanPrint();">
           <option value="2">2</option>
           <option value="3">3</option>
           <option value="4">4</option>

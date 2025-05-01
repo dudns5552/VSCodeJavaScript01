@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>J12High3filter</title>
+</head>
+<body>
+  <script>
+    function filterTest1() {
+      console.error("filterTest() called..조건에 맞는 엘리먼트만 추출");
+      var oldArray = [1,2,3,4,5];
+      var newArray = oldArray.filter(function(currentVal) {
+        console.log("현재원소", currentVal);
+        return currentVal <= 3;
+      });
+      console.log(newArray);
+    }
+
+    function filterTest2() {
+      console.error("filterTest2() called..JSON 객체형배열 사용 및 검색");
+      var oldJsonArray = [
+        {name : "혜빈", salary : 1000000},
+        {name : "제인", salary : 2000000},
+        {name : "나윤", salary : 3000000},
+        {name : "주이", salary : 4000000},
+        {name : "아인", salary : 5000000},
+        {name : "낸시", salary : 6000000}
+      ];
+
+      var newJsonArray = oldJsonArray.filter(function(currentVal) {
+        return currentVal.salary >= 3000000;
+      }, undefined);
+      console.log(newJsonArray);
+    }
+
+
+
+
+
+    function filterTest3() {
+      console.error("filterTest3() called..thisArgs 매개변수 사용하기");
+      var oldArray = [1, 2, 3, 4, 5, 50, 100];
+      var thisArgs = {min: 1, max: 10};
+      function getMinMax(value) {
+        return value >= this.min && value <= this.max;
+      }
+      var newArray = oldArray.filter(getMinMax, thisArgs);
+      console.log('thisArgs사용결과', newArray);
+    }
+  </script>
+  <h2>고차함수 - filter()</h2>
+  <div>
+    <input type="button" value="filter1" onclick="filterTest1();">
+    <input type="button" value="filter2" onclick="filterTest2();">
+    <input type="button" value="filter3" onclick="filterTest3();">
+  </div>
+</body>
+</html>
