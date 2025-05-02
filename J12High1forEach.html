@@ -7,10 +7,23 @@
 </head>
 <body>
   <script>
+    /*
+    forEach함수
+      - Array의 크기인 N번 반복해서 콜백함수를 호출한다.
+      - 반환값이 없다.
+        형식]
+              원본배열.forEach(
+                콜백함수(현재값, 현재값의 인덱스, 원본배열) {
+                실행부;
+                },
+                thisArgs
+              );
+            ※ thisArgs는 콜백함수 내에서 this.X와 같이 사용할 수 있다.
+    */ 
     function forEachTest1() {
       console.error("forEachTest1() called..기본사용법");
       var oldArray = [1,2,3,4,5];
-      olaArray.forEach(function(currentVal, index, array){
+      oldArray.forEach(function(currentVal, index, array){
         console.log('현재값 : '+ currentVal, '인덱스 : '+ index, 
           '배열 : '+array
         );
@@ -24,7 +37,7 @@
       function getSum(currentVal){
         sum += currentVal;
       }
-      olaArray.forEach(getSum);
+      oldArray.forEach(getSum);
       console.log(sum);
     }
 
@@ -36,7 +49,7 @@
 
     function forEachTest3() {
       console.error("forEachTest1() called..args 매개변수 사용하기");
-      var olaArray = [1,2,3,4,5,6,7,8,9,10];
+      var oldArray = [1,2,3,4,5,6,7,8,9,10];
       var sum = 0;
       var myArgs = {min:3, max:7};
       function getSum(currentVal) {
@@ -53,7 +66,6 @@
     <input type="button" value="forEach1" onclick="forEachTest1();">
     <input type="button" value="forEach2" onclick="forEachTest2();">
     <input type="button" value="forEach3" onclick="forEachTest3();">
-    <input type="button" value="forEach4" onclick="forEachTest4();">
   </div>
 </body>
 </html>
