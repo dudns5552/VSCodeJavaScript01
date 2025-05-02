@@ -20,20 +20,22 @@
     // 익명함수로 정의함
     var getDomainStr = function(emailArray) {
       // 방법1 : indexOf()를 사용하는 방법
-      var start = [];
-      var end = [];
       for(var i = 0 ; i < emailArray.length ; i++){
-        start[i] = emailArray[i].indexOf("@")
-        end[i] = emailArray[i].indexOf(".")
-        var str1 = emailArray[i].substring(start[i]+1, end[i]);
-        console.log(str1);
+        // @의 위치를 찾은 후 1을 더해준다.
+        var start = emailArray[i].indexOf("@")+1
+        //.의 위치를 찾음
+        var end = emailArray[i].indexOf(".")
+        // 앞에서 찾은 인덱스를 통해 문자열을 잘라낸다.
+        var str1 = emailArray[i].substring(start, end);
+        console.log("방법1 결과", str1);
       }
       // 방법2 : split()을 사용하는 방법
       for(var j = 0 ; j < emailArray.length ; j++){
+        // 이메일을 @으로 1차 split한다.
         var div = emailArray[j].split("@");
+        // 1차 결과의 1번 인덱스의 도메인을 2차 split한다.
         var divdiv = div[1].split(".");
-        console.log(divdiv[0])
-        
+        console.log("방법2 결과", divdiv[0]) 
       }
     }
 
