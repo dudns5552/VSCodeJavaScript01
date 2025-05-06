@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Qu06.html</title>
+</head>
+<body>
+
+   <h2>암호를 입력하라!</h2>
+   <hr>
+   <script>
+      /*
+      문제06]  정확한 암호가 입력될때까지 계속 prompt()를 출력하여 
+      암호를 입력받는 프로그램을 작성하시오. 암호는 javascript 이다.
+      */
+      /*
+      1. while 걸고 암호를 맞추면 false를 반환하게
+      */
+     let pw = "javascript"
+     let bl = "true"
+     while(bl){
+        let check = prompt("암호를 대시오.")
+         if(check == pw){
+            bl = false;
+            document.write("통과~!")
+         }
+         else{
+            alert("틀렸소 다시해보시오.")
+         }
+     }
+
+   </script>
+</body>
+</html>

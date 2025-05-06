@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Qu05.html</title>
+</head>
+<body>
+   <script>
+      const day = prompt("요일을 입력하세요 : ");
+      var week = ['일', '월', '화', '수', '목', '금', '토'];
+      var d = week.indexOf(day);
+      if(1 <= d && d <= 5){
+         
+         alert(`${week[d]}는 출근`);
+      }
+      else{
+         alert(`${week[d]}는 쉬는날~`)
+      }
+   </script>
+</body>
+</html>

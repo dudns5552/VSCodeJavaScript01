@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Qu10.html</title>
+</head>
+<body>
+   <h2>정수 5개 입력받아 역순으로 출력</h2>
+   <hr>
+   <span>입력된 수의 배열</span><br>
+   <span id="input"></span>
+   <hr>
+   <span>역순으로 재정렬된 배열</span><br>
+   <span id="re"></span>
+
+   <script>
+      let input = [];
+      let str1 = "";
+      let str2 = "";
+      for( let i = 0 ; i < 5 ; i ++){
+         input[i] = parseInt(prompt('숫자를 입력하세요.'));
+         str1 += input[i] + " ";
+      }
+      document.getElementById("input").innerText =  str1
+
+      for( let j = 4 ; j >= 0 ; j --){
+         str2 += input[j] + " ";
+      }
+      document.getElementById("re").innerText =  str2
+   </script>
+</body>
+</html>

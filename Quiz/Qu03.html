@@ -29,10 +29,9 @@
   <span></span>
   <script>
     function pr2(str, repeat) {
-      for(var i = repeat+1 ; i >= 1 ; i--){
-        string = "";
-        for(var j = 1 ; j <= 5 ; j ++){
-          if(j < i)
+      for(var i = repeat ; i >= 1 ; i--){
+        var string = "";
+        for(var j = 1 ; j <= i ; j ++){
             string = string + str;
         }
         document.write(string + "<br>");
