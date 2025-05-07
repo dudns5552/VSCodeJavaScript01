@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>J18CssControl02.html</title>
+  <style>
+    div {
+      width: 130px; height: 50px; border: 1px solid gray;
+      float: left; margin: 20px; padding: 10px; cursor: pointer;
+    }
+    idv#myDiv2 {
+      background-color: chocolate;
+    }
+  </style>
+  <script>
+    function readStyle1() {
+      let myDiv1 = document.getElementById("myDiv1");
+      let myStyle = myDiv1.style.backgroundColor;
+      console.log("지정된 배경색1 : "+ myStyle);
+    }
+    function readStyle2() {
+      let myDiv2 = document.getElementById("myDiv2");
+
+      // let myStyle = myDiv2.style.backgroundColor;
+      // console.log("지정된 배경색2 : "+ myStyle);
+
+      var style = window.getComputedStyle(myDiv2);
+      var value = style.getPropertyValue("background-color");
+      console.log("지정된 배경색2 : " + value);
+    }
+  </script>
+</head>
+<body>
+  <h2>스타일 속성값 읽어오기</h2>
+  <p>
+    각 박스를 클릭하면 속성값을 확인할 수 있습니다.
+  </p>
+  <div id="myDiv1" style="background-color: blueviolet;" 
+    onclick="readStyle1();">
+    인라인 스타일로 배경색 설정
+  </div>
+  <div id="myDiv2" onclick="readStyle2();">
+    임베딩 스타일로 배경색 설정
+  </div>
+</body>
+</html>

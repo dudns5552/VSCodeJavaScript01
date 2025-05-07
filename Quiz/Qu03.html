@@ -39,5 +39,44 @@
   }
   pr2("*", 5);
 </script>
+
+
+
+
+
+쌤코드
+
+<h1>*로 탑 만들기</h1>
+    <hr>
+    <script>
+        for(var i=1 ; i<=5 ; i++){
+            for(var j=1 ; j<=i ; j++){
+                document.write("* ");
+            }
+            document.write("<br>");
+        }
+    </script>
+
+    <h1>*로 역순으로 탑 만들기1</h1>
+    <hr>
+    <script>
+        for(var i=1 ; i<=5 ; i++){
+            for(var j=1 ; j<=(5-i+1) ; j++){
+                document.write("* ");
+            }
+            document.write("<br>");
+        }
+    </script>
+
+    <h1>*로 역순으로 탑 만들기2</h1>
+    <hr>
+    <script>
+        for(var i=5 ; i>=1 ; i--){
+            for(var j=1 ; j<=i ; j++){
+                document.write("* ");
+            }
+            document.write("<br>");
+        }
+    </script>
 </body>
 </html>

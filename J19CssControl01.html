@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>J18CssControl01.html</title>
+  <script>
+    let pTag, pSize;
+    window.onload = function() {
+      pTag = document.getElementById("article");
+      pSize = parseInt(pTag.style.fontSize);
+    }
+    function fnArticle(flag) {
+      switch(flag) {
+        case "+":
+          pSize += 10;
+          pTag.style.fontSize = pSize + "px";
+          break;
+        case "-":
+          pSize -= 10;
+          pTag.style.fontSize = pSize + "px";
+          break;
+        case "R":
+          pTag.style.color = "red";
+          break;
+        case "G":
+          pTag.style.color = "green";
+          break;
+        case "B":
+          pTag.style.color = "blue";
+          break;
+        case "Bo":
+          pTag.style.fontWeight = "bold";
+          break;
+        case "No":
+          pTag.style.fontWeight = "normal";
+          break;
+        case "Ce":
+          pTag.style.textAlign = "center";
+          break;
+        case "Le":
+          pTag.style.textAlign = "left";
+          break;
+        case "B_red":
+          pTag.style.backgroundColor = "red";
+          break;
+        case "B_silver":
+          pTag.style.backgroundColor = "silver";
+          break;
+        case "B_white":
+          pTag.style.backgroundColor = "white";
+          break;
+        default:
+          pTag.style.color = "black";
+      }
+    }
+  </script>
+</head>
+<body>
+  <h2>자바스크립트로 CSS제어하기</h2> 
+  <input type="button" value="글꼴바꾸기" onclick="setFont();">
+  <fieldset>
+    <legend>신문기사</legend>
+    <button onclick="fnArticle('+');">+</button>
+    <button onclick="fnArticle('-');">-</button>
+    <button onclick="fnArticle('R');">R</button>
+    <button onclick="fnArticle('G');">G</button>
+    <button onclick="fnArticle('B');">B</button>
+    <button onclick="fnArticle('');">Black</button>
+    <button onclick="fnArticle('Bo');">볼드체</button>
+    <button onclick="fnArticle('No');">보통체</button>
+    <br>
+    <button onclick="fnArticle('Ce');">가운데정렬</button>
+    <button onclick="fnArticle('Le');">좌측정렬</button>
+    <button onclick="fnArticle('B_red');">배경색(red)</button>
+    <button onclick="fnArticle('B_silver');">배경색(silver)</button>
+    <button onclick="fnArticle('B_white');">배경색(white)</button>
+  </fieldset>
+
+  <p id="article" style="font-size: 12px;">
+    Lorem ipsum dolor sit amet, 이 텍스트는 단지 디자인을 채우기 위한
+     용도입니다. Consectetur adipiscing elit, 실제로 읽히는 것이 
+     목적이 아니죠. Sed do eiusmod tempor incididunt ut labore et 
+     dolore magna aliqua. 그러므로 오탈자나 말이 안 돼도 괜찮습니다. 
+     Ut enim ad minim veniam, 그저 공간을 채우는 것이니까요.
+
+2.
+Duis aute irure dolor in reprehenderit in voluptate velit esse 
+cillum dolore eu fugiat nulla pariatur. 이러한 문장은 흔히 광고 시안, 
+웹사이트 레이아웃, 또는 앱 디자인 초안에서 쓰입니다. Excepteur sint 
+occaecat cupidatat non proident, 디자이너는 이를 통해 텍스트의 
+길이나 배치를 미리 확인하죠. Sunt in culpa qui officia deserunt 
+mollit anim id est laborum.
+
+3.
+때로는 한글 텍스트만으로는 공간이 부족해 보일 수 있어서, 
+영어를 섞어 표현하기도 합니다. Lorem ipsum text helps maintain 
+the visual balance of your layout, 글자 수와 자간 등을 고려할 
+때 유용하니까요. Even if the reader doesn’t understand it, 문서 
+전체의 분위기나 느낌은 전달되거든요.
+
+4.
+결국 중요한 건 내용보다는 형식입니다. Typography, spacing, and 
+layout are the focus—not the meaning. 하지만 보는 사람이 착각할 
+만큼 자연스럽게 보이는 것도 중요하죠. 그래서 이런 혼합형 로렘 
+입숨은 꽤 유용하게 쓰입니다.
+  </p>
+</body>
+</html>

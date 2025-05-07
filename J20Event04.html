@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>J19Event04.html</title>
+  <style>
+    #myBox{
+      background-color: aquamarine;
+      padding: 10px; text-align: center;
+      width: 250px; height: 50px; line-height: 25px;
+    }
+  </style>
+  <script>
+    let globalNum = 0;
+    let mBox ;
+    window.onload = function() {
+      mBox = document.getElementById("myBox");
+      mBox.onclick = clickFunc();
+      // mBox.onclick = clickFunc();
+      mBox.addEventListener("contextmenu", rClickFunc);
+    }
+    function clickFunc(){
+      mBox.innerText = globalNum++;
+      mBox.style.color = 'red';
+      mBox.style.fontSize = "1.8em";
+    }
+    function rClickFunc() {
+      event.preventDefault();
+      mBox.innerText = globalNum--;
+      mBox.style.color = 'blue';
+      mBox.style.fontSize = "1.2em";
+    }
+  </script>
+</head>
+<body>
+  <h2>이벤트 - load 네번째</h2>
+  <div id="myBox" style="cursor: pointer;">
+    좌클릭하면 숫자가 증가<br>
+    우클릭하면 숫자가 감소
+  </div>
+</body>
+</html>
