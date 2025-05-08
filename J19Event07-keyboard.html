@@ -90,9 +90,17 @@
       }
     }
 
+    /* 
+    thisObj : 현재 입력중인 input 상자
+    numLength : 입력해야 하는 글자수
+    nextObj : 포커스를 이동할 input 상자
+    */ 
     function commonFocusMove(curr, num, next) {
+      // 현재 입력중인 <input>의 DOM을 얻어온다.
       let obj1 = document.getElementById(curr);
+      // 입력된 글자수를 확인한다.
       let strLen = obj1.value.length;
+      // 입력할 글자수와 일치하면 다음 <input>으로 포커스를 이동한다.
       if(strLen == num){
         document.getElementById(next).focus();
       }
