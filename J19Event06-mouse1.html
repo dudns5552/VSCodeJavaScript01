@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>J19Event06-mouse1.html</title>
+  <style>
+    div {
+      padding: 20px; border: 1px solid black;
+      text-align: center; width: 300px;
+    }
+    .div01 { float: left;}
+    .clear { clear: both; border: 0;}
+  </style>
+</head>
+<body>
+  <h2>마우스 이벤트</h2>
+  <h3>우클릭</h3>
+  <script>
+    window.onload = function() {
+      const myDiv1 = document.getElementById("myDiv1");
+      myDiv1.addEventListener("contextmenu", function(e) {
+        e.preventDefault();
+        alert("마우스 우클릭 금지영역");
+      });
+    }
+  </script>
+  <div class="div01">
+    <p>마우스 우클릭 - 메뉴보임</p>
+  </div>
+  <div class="div01" id="myDiv1">
+    <p>마우스 우클릭 - 메뉴 비활성화</p>
+  </div>
+  <div class="clear"></div>
+
+
+
+
+
+
+
+  <h3>마우스 휠 움직임</h3>
+  <script>
+    let fSize = 12;
+    function myWhell(e) {
+      e.preventDefault();
+      console.log(e.deltaY);
+      if(e.deltaY < 0) fSize--;
+      else fSize++;
+      document.getElementById("incrementText").style.fontSize = 
+        fSize + "px";
+    }
+  </script>
+  <div class="div01" onwheel="myWheel(event)">
+    <p>마우스 휠을 움직여 보세요.</p>
+  </div>
+  <div class="div01" id="incrementText">텍스트</div>
+  <div class="clear"></div>
+
+
+
+
+
+
+
+
+
+  <h3>움직임 감지</h3>
+  <script>
+    function myMouseMove(e) {
+      let x = e.clientX;
+      let y = e.clientY;
+      let coor = "<p>(x = " + x + ", y = "+ y + ")</p>";
+      document.getElementById("display").innerHTML = coor;
+    }
+    function myMouseOut() {
+      document.getElementById("display").innerHTML =
+        "<p>마우스가 영역을 벗어남</p>";
+    }
+  </script>
+  <div class="div01" onmousemove="myMouseMove(event)"
+    onmouseout="myMouseOut()">
+    <p>마우스를 움직여 보세요.</p>
+  </div>
+  <div class="div01" id="display">
+    <p>마우스 좌표가 출력됩니다.</p>
+  </div>
+  <div class="clear"></div>
+
+
+
+
+
+
+
+
+
+
+
+  <h3>더블클릭</h3>
+  <script>
+    function myDblclick() {
+      document.getElementById("textAdd").innerHTML +=
+        "더블클릭했네요 ";
+    }
+  </script>
+  <div class="div01" ondblclick="myDblclick()">
+    <p>더블클릭 해보세요.</p>
+  </div>
+  <div class="div01" id="textAdd"></div>
+  <div class="clear"></div>
+
+
+
+
+
+
+
+
+  <h3>클릭</h3>
+  <script>
+    let cnt = 0;
+    function myClick() {
+      let myColor = ['red', 'blue', 'green', 'black'];
+      document.getElementById("colorChange").style.borderColor =
+        myColor[++cnt%4];
+    }
+  </script>
+  <div class="div01" onclick="myClick()">
+    <p>마우스로 클릭 해보세요.</p>
+  </div>
+  <div class="div01" id="colorChange"></div>
+  <div class="clear"></div>
+</body>
+</html>

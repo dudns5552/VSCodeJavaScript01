@@ -5,13 +5,32 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>J18CssControl01.html</title>
   <script>
+    // 전역변수
     let pTag, pSize;
+
+    // 이 문서의 로드가 완료된 후 익명함수를 실행한다.
     window.onload = function() {
+      // 기사가 있는 p태그의 DOM요소를 얻어옴
       pTag = document.getElementById("article");
+      // p태그에 적용된 폰트 크기를 읽어온 후 숫자로 변환한다.
       pSize = parseInt(pTag.style.fontSize);
     }
+
+    /*
+    JS에서 스타일을 적용하는 방법
+      HTML에서 스타일을 적용할 DOM요소를 얻어온다.
+      DOM 변수에 style을 추가하고, 뒷 부분에 CSS속성을 추가한다.
+      color와 같은 경우는 그대로 사용하면 되고
+      background-color와 같은 경우에는 하이픈(-)을 제거한 후 
+      첫 문자를 대문자로 변경한다.
+      Ex) DOM변수.style.color = 'red';
+          DOM변수.style.backgroundColor = 'blue';
+    */ 
     function fnArticle(flag) {
       switch(flag) {
+        /*
+        폰트의 크기, 마진, 패딩과 같이 숫자로 속성값을 지정해야 하는
+        경우에는 pt, px, em과 같은 단위를 반드시 추가 해야한다. */
         case "+":
           pSize += 10;
           pTag.style.fontSize = pSize + "px";
@@ -54,11 +73,68 @@
           pTag.style.color = "black";
       }
     }
+
+
+
+    /*
+    퀴즈] 글꼴바꾸기 버튼을 계속 누를때마다 아래 5가지
+    폰트가 토글되어 적용될수 있도록 함수를 정의하시오.
+    글꼴 : [Verdana, 굴림체, 휴먼옛체, 궁서, Impact]
+    */
+    let idx = 0;
+    
+    function setFont() {
+      let ff = ["Verdana", "굴림체", "휴먼옛체", "궁서", "Impact"];
+      let ft = document.getElementById("article");
+      switch(idx) {
+        case 0:
+          ft.style.fontFamily = ff[idx];
+          break;
+        case 1:
+          ft.style.fontFamily = ff[idx];
+          break;
+        case 2:
+          ft.style.fontFamily = ff[idx];
+          break;
+        case 3:
+          ft.style.fontFamily = ff[idx];
+          break;
+        case 4:
+          ft.style.fontFamily = ff[idx];
+          idx = 0;
+          break;
+      }
+      idx++;
+    }
+  </script>
+
+
+
+
+
+
+
+
+
+  <!-- 쌤코드 -->
+
+  <script>
+    // 토글을 위한 전역변수 생성
+    let fontToggle = 0;
+    const setFont2 = () => {
+      let fontArray = ["Verdana", "굴림체", "휴먼옛체", "궁서", "Impact"];
+      console.log("fontToggle", fontToggle);
+      /* p태그 부분에 스타일을 적용한다. 5로 나눈 나머지는 
+      0~4사이가 된다. */
+      pTag.style.fontFamily = fontArray[++fontToggle%5];
+    }
   </script>
 </head>
 <body>
   <h2>자바스크립트로 CSS제어하기</h2> 
-  <input type="button" value="글꼴바꾸기" onclick="setFont();">
+  <input type="button" value="글꼴바꾸기" onclick="setFont();"
+  id="ft">
+  
   <fieldset>
     <legend>신문기사</legend>
     <button onclick="fnArticle('+');">+</button>
