@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RPSGame.html</title>
+    <style>
+    </style>
+    <script>
+        window.onload = function() {
+            let form = document.getElementsByTagName("form")[0];
+            form.computer.src = "../images/start.png"
+            form.me.src = "../images/start.png"
+        }
+        function RPS(me, form){
+            let CP = parseInt(Math.random()*3)+1;
+            
+            let r = CP - me;
+            console.log(r, typeof(r));
+
+
+            form.computer.src = `../images/RPS(${CP}).jpg`;
+            form.me.src = `../images/RPS(${me}).jpg`;
+
+            switch(r) {
+				case 0:
+					document.getElementsByName("result")[0].innerText = "비겼습니다.";
+                    break;
+				case 1: case -2:
+					document.getElementsByName("result")[0].innerText ="이겼습니다.";
+                    break;
+				case 2: case -1:
+					document.getElementsByName("result")[0].innerText = "졌습니다.";
+                    break;
+				}
+        }
+
+    </script>
+</head>
+<body>
+    <form>
+        <table border="1" sellspacing="0"  style="width: 500px; height: 500px;
+        text-align: center; ">
+            <tr style="height: 20px;">
+                <td style="width: 50%;">컴퓨터</td>
+                <td>나</td>
+            </tr>
+            <tr>
+                <td>
+                    <img src="" value="" name="computer">
+                </td>
+                <td>
+                    <img src="" value="" name="me">
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2" style="text-align: left;
+                height: 30px;" name="result">
+                </td>
+            </tr>
+        </table>
+        <input type="button" value="가위" onclick="RPS(1, this.form); ">
+        <input type="button" value="바위" onclick="RPS(2, this.form);">
+        <input type="button" value="보" onclick="RPS(3, this.form);">
+    </form>
+</body>
+</html>

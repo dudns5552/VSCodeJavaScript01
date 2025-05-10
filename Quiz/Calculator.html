@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Calculator.html</title>
+   <style>
+      .form {
+         
+         border-radius: 10px; 
+         background-color: #DDDDDD;
+         border-color: #DDDDDD;
+          text-align: center;
+         padding: 3px; margin: 10px;
+         border-spacing: 8px;
+      }
+      .form input{
+         font-weight: bold; font-size: 20px;
+         border-radius: 10px;
+         width: 100px; height: 60px;
+         margin: 3px;
+         color: white;
+    
+      }
+      .bk1 {
+         background-color: #373737;
+         border-color: #373737;
+      }
+      .yl1 {
+         background-color: #FA960A;
+         border-color: #FA960A;
+      }
+      .gy1 {
+         background-color: #5a5a5a;
+         border-color: #5a5a5a;
+      }
+   </style>
+   <script>
+     window.onload =  () => {
+      let result = document.getElementById("result");
+      result.value = "0"
+     }
+     function cal(t) {
+
+      console.log("cal호출됨");
+        
+         if(t.name == "F"){
+            result.value = result.value + ".";
+         }
+         if(result.value == "0"){
+            result.value = "";
+         }
+         if(t.value == "C"){
+           result.value = "0";
+         }
+         if(t.value == "Backspace"){
+            if(result.value.length == 1){
+               result.value = "0";
+            }
+            else{
+               result.value = result.value.substring(0, result.value.length-1);
+            }
+         }
+         if(t.name == "N" || t.name == "O") {
+            result.value += t.value;
+         }
+         if(t.name == "R") {
+            result.value = eval(`${result.value}`);
+         }
+         
+      }
+   </script>
+</head>
+<body>
+   <form class="form" style="width: 500px; height: 50%;">
+    <input type="text" id="result" 
+    style="width: 90%; text-align: right; padding-right: 15px;
+      background-color: #70C738; color: #373737;" readonly>
+    <input type="button" value="Backspace" class="gy1" name="BS"
+      style="width: 210px;" onclick="cal(this);">
+    <input type="button" value="C" class="gy1" name="C"
+      style="width: 210px;" onclick="cal(this);">
+    <input type="button" value="1" class="bk1" name="N" onclick="cal(this);">
+    <input type="button" value="2" class="bk1" name="N" onclick="cal(this);">
+    <input type="button" value="3" class="bk1" name="N" onclick="cal(this);">
+    <input type="button" value="/" class="yl1" name="O" onclick="cal(this);">
+    <input type="button" value="4" class="bk1" name="N" onclick="cal(this);">
+    <input type="button" value="5" class="bk1" name="N" onclick="cal(this);">
+    <input type="button" value="6" class="bk1" name="N" onclick="cal(this);">
+    <input type="button" value="*" class="yl1" name="O" onclick="cal(this);">
+    <input type="button" value="7" class="bk1" name="N" onclick="cal(this);">
+    <input type="button" value="8" class="bk1" name="N" onclick="cal(this);">
+    <input type="button" value="9" class="bk1" name="N" onclick="cal(this);">
+    <input type="button" value="+" class="yl1" name="O" onclick="cal(this);">
+    <input type="button" value="=" class="bk1" name="R" onclick="cal(this);">
+    <input type="button" value="0" class="bk1" name="N" onclick="cal(this);">
+    <input type="button" value="." class="bk1" name="F" onclick="cal(this);">
+    <input type="button" value="-" class="yl1" name="O" onclick="cal(this);">
+
+   </form>
+</body>
+</html>
