@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>J24WebStorage2.html</title>
   <script type="text/javascript">
+    // 전역변수 생성 및 문서 로드시 DOM 얻어옴 
     var key, val, result;
     window.onload = function() {
       key = document.getElementById("key");
@@ -12,7 +13,10 @@
       result = document.getElementById("result");
     }
 
+    // 스토리지 저장
     var save = function() {
+
+      //Key와 value의 빈값 체크
       if (key.value == "") {
         alert("키를 입력하세요."); key.focus();
         return;
@@ -21,6 +25,7 @@
         alert("값을 입력하세요."); val.focus();
         return;
       }
+      // 스토리지 저장 및 새로운 입력을 위해 입력상자의 내용을 지움
       localStorage.setItem(key.value, val.value);
       alert("로컬 스토리지에 저장되씸");
       key.value = "";
@@ -28,7 +33,9 @@
       key.focus();
     }
 
+    // Key를 이용해서 저장된 스토리지 조회
     var selectOne = function () {
+
       if(key.value == "") {
         alert("조회할 키를 입력하세요.");
         key.focus();
@@ -38,23 +45,26 @@
       alert("'" + key.value + "'로 조회한 결과 : " + sValue);
     }
 
+    // 스토리지에 저장된 모든 정보를 배열처럼 반복문으로 조회
     var selectAll = function () {
       result.value = "";
       for (var i = 0 ; i < localStorage.length ; i++) {
-        result.value += localStorage.key(i) + ";"
-          + localStorage.getItem(localStorage.key(i))
-          + "\r\n";
+        result.value += localStorage.key(i) + ":"
+          + localStorage.getItem(localStorage.key(i)) + "\r\n";
       }
     }
 
+    // Key를 통해 스토리지 삭제
     var removeOne = function () {
       if (key.value == "") {
         alert("키를 입력하신후 삭제해주세요.");
         key.focus(); return;
       }
       localStorage.removeItem(key.value);
-      alert("해당 키가 삭제되었ㅅ브니다.");
+      alert("해당 키가 삭제되었습니다.");
     }
+
+    // 스토리지에 저장된 모든 정보를 삭제
     var removeAll = function() {
       localStorage.clear();
       alert("웹스토리지에 저장된 모든 데이터가"
