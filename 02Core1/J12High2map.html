@@ -11,7 +11,7 @@
     map함수
     - 배열 요소의 크기만큼 콜백함수를 실행해서 새로운 배열을 만들때 사용
     - 즉, forEach와는 다르게 반환값이 존재한다.
-    - 원본배열의 크기가 N이라면, 새롭게 생성되는 배열의 크기도 N이된다.
+    - 단, 원본배열의 크기가 N이라면, 새롭게 생성되는 배열의 크기도 N이된다.
     형식] 새로운 배열 = 원본배열.map(
                     콜백함수(현재값, 현재값의 인덱스, 원본배열){
                                 실행부;
@@ -26,7 +26,7 @@
       var oldArray = [1,2,3,4,5];
       var newArray = oldArray.map(
         function(currentVal, index, array){
-          //forEach와 동일한 결과가 콘솔에 출력
+          // forEach와 동일한 결과가 콘솔에 출력
           console.log(currentVal, index, array);
           // 각 요소에 2를 곱한 결과를 순서대로 반환
           return currentVal*2;
