@@ -21,14 +21,14 @@
   // 일반함수로 정의
 function mouseoverFunc(t) {
   // img태그에서 this를 통해 DOM요소를 전달하므로 즉시 사용가능하다.
-  t.src="./images/2.jpg";
+  t.src="../images/2.jpg";
 }
 // 익명함수로 정의
 let mouseoutFunc = function() {
   /* 태그명을 통해 DOM을 얻어오는 경우 2개 이상일 수 있으므로
   배열로 가져오게 된다. 따라서 인덱스를 통해 가져올 DOM을 
   특정해야한다.*/ 
-  document.getElementsByTagName("img")[0].src='./images/1.jpg';
+  document.getElementsByTagName("img")[0].src='../images/1.jpg';
 }
 
 let trumpImg;
