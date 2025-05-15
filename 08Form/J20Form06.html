@@ -19,14 +19,14 @@
     /*
     querySelector()
       document객체에서 제공하는 함수로 DOM요소를 선택하는 것은 
-      getElementByXX와 동일하다. 단, CSS의 선택자(Selector)를 사용해서
-      DOM요소를 선택한다.
+      getElementByXX와 동일하다. 단, CSS의 선택자(Selector)를 
+      사용해서 DOM요소를 선택한다.
     */ 
     let sido = document.querySelector('#sido');
     // select 태그에서 항목을 선택하면 change 이벤트가 발생됨
     sido.onchange = function() {
 
-      // 도시명의 select태그의 DOM요소를 얻어옴
+      // ID가 city인 select태그의 DOM요소를 얻어옴
       var city = document.querySelector('#city');
       // 도시명을 초기화
       city.options.length = 0;
